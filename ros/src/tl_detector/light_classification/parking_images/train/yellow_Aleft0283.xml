@@ -1,0 +1,26 @@
+<annotation>
+	<folder>yellow</folder>
+	<filename>yellow_Aleft0283.jpg</filename>
+	<path>/media/michal/DawneF/AI_NEURAL_NETWORKS_PYTHON_UDACITY/UDACITY_MY_CAR_NANO_DEGREE/Capstone/Foty_parkingowe/renamed/yellow/yellow_Aleft0283.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>800</width>
+		<height>600</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>yellow</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>485</xmin>
+			<ymin>245</ymin>
+			<xmax>509</xmax>
+			<ymax>301</ymax>
+		</bndbox>
+	</object>
+</annotation>
