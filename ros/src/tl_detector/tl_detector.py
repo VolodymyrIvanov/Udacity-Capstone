@@ -16,19 +16,29 @@ import os
 
 STATE_COUNT_THRESHOLD = 3
 TL_DISTANCE_LIMIT = 150
+MODEL_NAME_SIMU = 'light_classification/inferencemodel'
+MODEL_NAME_CAR = 'light_classification/parking_model'
+
 
 class TLDetector(object):
     def __init__(self):
 
         rospy.init_node('tl_detector')
-	print os.getcwd()
-	print(os.path.dirname(os.path.realpath(__file__)))
+        print(os.getcwd())
+        print(os.path.dirname(os.path.realpath(__file__)))
 
-	MODEL_NAME = 'light_classification/inferencemodel'
+        try:
+            site_launch_flag = rospy.get_param('/grasshopper_calibration_yaml')
+            #Parameter is present - no exception, that is site.launch
+            model_name = MODEL_NAME_CAR
+        except KeyError:
+            #No param - styx.launch
+            model_name = MODEL_NAME_SIMU
+        
+	    
+        self.model_path = model_name + '/frozen_inference_graph.pb'
 
-	self.model_path = MODEL_NAME + '/frozen_inference_graph.pb'
-
-	PATH_TO_LABELS = 'light_classification/training_setup/object-detection.pbtxt'
+	    #PATH_TO_LABELS = 'light_classification/training_setup/object-detection.pbtxt'
 
         # Build the model
         self.detection_graph = tflow.Graph()
